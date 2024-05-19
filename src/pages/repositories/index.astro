@@ -5,7 +5,6 @@ import Layout from "../../layouts/Layout.astro";
 import {initializeRepositories} from "../../lib/githubData";
 import RepoSimpleList from "../../components/RepoSimpleList.astro";
 import RepoDetailedList from "../../components/RepoDetailedList.astro";
-// todo: remove repository list and match the music index.astro
 
 initializeRepositories().then(() => {
     console.log('Repositories have been fetched.');
