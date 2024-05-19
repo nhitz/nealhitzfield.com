@@ -1,0 +1,10 @@
+---
+import RepositoryItemCard from "./RepositoryItemCard.astro";
+import {repositories} from "../lib/githubData";
+---
+<div class="px-6 relative z-10 mt-4">
+    <h2 class="text-2xl font-bold">Repositories in ItemCard List Format:</h2>
+</div>
+<div class="grid gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 mt-6">
+    {repositories.map((repository) => <RepositoryItemCard repository={repository} />)}
+</div>

@@ -1,4 +1,5 @@
 ---
+import {fetchRepositories} from "../../services/githubService";
 const { id } = Astro.params;
 import DotsButton from "../../components/DotsButton.astro";
 import InlineOwners from "../../components/InlineOwners.astro";
@@ -8,13 +9,28 @@ import PageHeader from "../../components/PageHeader.astro";
 import PlayButton from "../../components/PlayButton.astro";
 import Layout from "../../layouts/Layout.astro";
 import { allRepositories } from "../../lib/githubData";
+import RepositoryTable from "../../components/RepositoryTable.astro";
+import {playlists, morePlaylists} from "../../lib/musicData";
 
-export function getStaticPaths() {
-    return allRepositories.map((repository) => ({
-        params: {
-            id: repository.id,
-        },
-    }));
+// export function getStaticPaths() {
+//     return allRepositories.map((repository) => ({
+//         params: {
+//             id: repository.id,
+//         },
+//     }));
+// }
+
+export async function getStaticPaths() {
+    const repositories = await fetchRepositories();
+
+    return {
+        paths: repositories.map((repository) => ({
+            params: {
+                id: repository.id.toString(),
+            },
+        })),
+        fallback: false,
+    };
 }
 
 const repository = allRepositories.find((repository) => repository.id === id);
@@ -29,20 +45,20 @@ const repository = allRepositories.find((repository) => repository.id === id);
         <div
                 class="flex flex-col items-center md:flex-row md:items-stretch gap-8 px-6"
         >
-            <!--<div class="h-52 w-52 flex-none">-->
-            <!--    <img-->
-            <!--            src={playlist?.cover}-->
-            <!--            alt={playlist?.title}-->
-            <!--            class="object-cover h-full w-full shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"-->
-            <!--            transition:name=`playlist ${playlist?.id} image`-->
-            <!--    />-->
-            <!--</div>-->
+            <div class="h-52 w-52 flex-none">
+                <img
+                        src={playlists[1].cover}
+                        alt={playlists[1].title}
+                        class="object-cover h-full w-full shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
+                        transition:name=`playlist ${playlist?.id} image`
+                />
+            </div>
             <div class="flex flex-col justify-between">
                 <div class="flex flex-1 items-end">Repository</div>
                 <div>
                     <h1 class="title-clamp font-bold block">
-                        {playlist?.title}
-                        <span transition:name=`playlist ${playlist?.id} title`></span>
+                        {repository?.name}
+                        <span transition:name=`playlist ${repository?.id} title`></span>
                     </h1>
                 </div>
                 <div class="flex-1 flex items-end">
@@ -66,18 +82,13 @@ const repository = allRepositories.find((repository) => repository.id === id);
                 <DotsButton />
             </div>
             <div class="px-6 pt-4">
-                <MusicsTable />
+                <RepositoryTable />
             </div>
         </div>
         <div
                 class="absolute h-screen inset-0 z-[-1] bg-gradient-to-b from-context"
-                style=`--context-color:${playlist?.color.accent}`
+                style=`--context-color:${repository?.color.accent}`
         >
-            <img
-                    src={playlist?.cover}
-                    alt={playlist?.title}
-                    class="el-to-fade transition-all duration-500 z-[-1] absolute inset-0 mix-blend-overlay opacity-20 scale-90 w-full h-full object-cover blur-md"
-            />
             <div
                     class="absolute inset-0 bg-gradient-to-t via-transparent from-zinc-900"
             >

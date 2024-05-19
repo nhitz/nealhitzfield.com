@@ -1,12 +1,18 @@
 import axios from 'axios';
-import { colors } from '../lib/colors';
+import {colors} from '../lib/colors';
 import type {Repository} from "../lib/githubData.ts";
 
+let cachedRepositories: Repository[] = []
+
 export async function fetchRepositories(): Promise<Repository[]> {
-    console.log('fetching repositories')
+    if (cachedRepositories.length > 0) {
+        console.log('Returning cached repositories...');
+        return cachedRepositories;
+    }
+
+    console.log('GET api request for repositories from github...OK');
     const response = await axios.get('https://api.github.com/users/nhitz/repos');
-    console.log('fetched repositories:', response.data);
-    return response.data.map((repo: any) => ({
+    cachedRepositories = response.data.map((repo: any) => ({
         id: repo.id,
         name: repo.name,
         url: repo.html_url,
@@ -29,6 +35,7 @@ export async function fetchRepositories(): Promise<Repository[]> {
         commits: repo.commits,
         branches: repo.branches,
     }));
+    return cachedRepositories;
 }
 
 // Fetch single repository by url

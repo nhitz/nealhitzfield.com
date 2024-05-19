@@ -17,10 +17,7 @@ const { repository } = Astro.props;
     <div class="font-bold block" transition:name=`playlist ${repository.id} title`>
         {repository.name}
     </div>
-    <div
-            class={"absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"}
-            transition:name=`playlist ${repository.id} play`
-    >
+    <div class={"absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"} transition:name=`playlist ${repository.id} play`>
         <PlayButton />
     </div>
 </a>
