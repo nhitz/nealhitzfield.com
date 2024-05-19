@@ -352,8 +352,8 @@ export const starredRepositories = [
 
 export const allRepositories = [
     ...repositories,
-    ...moreRepositories,
-    ...sidebarRepositories,
-    ...starredRepositories,
+    // ...moreRepositories,
+    // ...sidebarRepositories,
+    // ...starredRepositories,
 ];
 

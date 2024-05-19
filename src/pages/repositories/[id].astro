@@ -1,12 +1,11 @@
 ---
-const {id} = Astro.params;
 import DotsButton from "../../components/DotsButton.astro";
 import InlineOwners from "../../components/InlineOwners.astro";
 import LikeButton from "../../components/LikeButton.astro";
+import RepositoryTable from "../../components/RepositoryTable.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import PlayButton from "../../components/PlayButton.astro";
 import Layout from "../../layouts/Layout.astro";
-import RepositoryTable from "../../components/RepositoryTable.astro";
 import {allRepositories} from "../../lib/githubData";
 
 export function getStaticPaths() {
@@ -14,7 +13,8 @@ export function getStaticPaths() {
         params: {id: repository.id},
     }));
 }
-const repository = allRepositories.find((repository) => repository.id === id);
+const {id} = Astro.params;
+const repository = allRepositories.find((repository) => repository.id.toString() === id);
 ---
 
 <Layout title={repository?.name || "404"}>

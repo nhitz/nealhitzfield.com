@@ -1,8 +1,10 @@
 ---
-import { Icon } from "astro-icon";
+import {Icon} from "astro-icon";
 import PureInlineOwners from "./PureInlineOwners.astro";
 import InlineOwners from "./InlineOwners.astro";
-import { repositories } from "../lib/githubData";
+import {repositories} from "../lib/githubData";
+const {id} = Astro.params;
+const repository = repositories.find((repository) => repository.id.toString() === id);
 ---
 
 <table class="table-auto text-left min-w-full divide-y-2 divide-gray-500/30">
@@ -15,21 +17,18 @@ import { repositories } from "../lib/githubData";
     </thead>
     <tbody>
     {
-        // table of repositories data
-        repositories.map((repo, index) => (
-            <tr key={repo.id} class="text-gray-100">
-                <td class="px-4 py-2 whitespace-nowrap">{index + 1}</td>
-                <td class="px-4 py-2 whitespace-nowrap">
-                    <a href={repo.url} class="hover:underline">{repo.name}</a>
-                    <InlineOwners owners={repo.owner} />
-                </td>
-                <td class="px-4 py-2 whitespace-nowrap">
-                    <a href={repo.url} class="hover:underline">{repo.name}</a>
-                    <PureInlineOwners owners={repo.owner} />
-                </td>
-                <td class="px-4 py-2 whitespace-nowrap text-right">{repo.updated_at}</td>
-            </tr>
-        ))
+        <tr key={repository.id} class="text-gray-100">
+            <!--<td class="px-4 py-2 whitespace-nowrap">{index + 1}</td>-->
+            <td class="px-4 py-2 whitespace-nowrap">
+                <a href={repository.url} class="hover:underline">{repository.name}</a>
+                <!--<InlineOwners owners={repo.owner} />-->
+            </td>
+            <td class="px-4 py-2 whitespace-nowrap">
+                <a href={repository.url} class="hover:underline">{repository.name}</a>
+                <PureInlineOwners owners={repository.owner}/>
+            </td>
+            <td class="px-4 py-2 whitespace-nowrap text-right">{repository.updated_at}</td>
+        </tr>
     }
     </tbody>
 </table>
