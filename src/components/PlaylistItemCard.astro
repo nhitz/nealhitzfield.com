@@ -1,5 +1,5 @@
 ---
-import type { Playlist } from "../lib/data";
+import type { Playlist } from "../lib/musicData";
 import PlayButton from "./PlayButton.astro";
 interface Props {
   playlist: Playlist;
@@ -9,7 +9,7 @@ const { playlist } = Astro.props;
 ---
 
 <a
-  href={`/playlist/${playlist.id}`}
+  href={`/music/playlist/${playlist.id}`}
   class="playlist-item flex group relative transition-all duration-300 overflow-hidden items-center gap-5 rounded-md shadow-lg hover:shadow-xl outline-none bg-zinc-500/30 hover:bg-zinc-500/50 focus:bg-zinc-500/50"
   data-color={playlist.color.dark}
   transition:name=`playlist ${playlist.id} box`

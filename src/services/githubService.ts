@@ -1,26 +1,61 @@
 import axios from 'axios';
-import type { Playlist, Song } from '../lib/data';
 import { colors } from '../lib/colors';
+import type {Repository} from "../lib/githubData.ts";
 
-export async function fetchPlaylists(): Promise<Playlist[]> {
+export async function fetchRepositories(): Promise<Repository[]> {
+    console.log('fetching repositories')
     const response = await axios.get('https://api.github.com/users/nhitz/repos');
+    console.log('fetched repositories:', response.data);
     return response.data.map((repo: any) => ({
         id: repo.id,
-        title: repo.name,
+        name: repo.name,
+        url: repo.html_url,
         color: colors.gray, // You can replace this with a function to assign colors based on some repo properties
-        cover: 'https://via.placeholder.com/150', // Replace with actual cover image if available
-        artists: [repo.owner.login],
+        description: repo.description,
+        owner: repo.owner.login,
+        languages: repo.languages,
+        topics: repo.topics,
+        stars: repo.stargazers_count,
+        forks: repo.forks_count,
+        watchers: repo.watchers_count,
+        issues: repo.open_issues_count,
+        pull_requests: repo.open_pull_requests_count,
+        license: repo.license?.name,
+        created_at: repo.created_at,
+        updated_at: repo.updated_at,
+        size: repo.size,
+        default_branch: repo.default_branch,
+        contributors: repo.contributors,
+        commits: repo.commits,
+        branches: repo.branches,
     }));
 }
 
-export async function fetchSongs(playlistId: string): Promise<Song[]> {
-    const response = await axios.get(`https://api.github.com/repos/nhitz/${playlistId}`);
-    return response.data.map((repoDetail: any) => ({
-        id: repoDetail.id,
-        title: repoDetail.name,
-        image: 'https://via.placeholder.com/150', // Replace with actual image if available
-        artists: [repoDetail.owner.login],
-        album: repoDetail.description,
-        duration: 'N/A', // Replace with actual duration if available
-    }));
+// Fetch single repository by url
+export async function fetchSingleRepository(url: string): Promise<Repository> {
+    const response = await axios.get(url);
+    const repo = response.data;
+    return {
+        id: repo.id,
+        name: repo.name,
+        url: repo.html_url,
+        color: colors.gray, // You can replace this with a function to assign colors based on some repo properties
+        description: repo.description,
+        owner: repo.owner.login,
+        languages: repo.languages,
+        topics: repo.topics,
+        stars: repo.stargazers_count,
+        forks: repo.forks_count,
+        watchers: repo.watchers_count,
+        issues: repo.open_issues_count,
+        pull_requests: repo.open_pull_requests_count,
+        license: repo.license?.name,
+        created_at: repo.created_at,
+        updated_at: repo.updated_at,
+        size: repo.size,
+        default_branch: repo.default_branch,
+        contributors: repo.contributors,
+        commits: repo.commits,
+        branches: repo.branches,
+    };
 }

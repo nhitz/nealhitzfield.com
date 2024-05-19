@@ -2,7 +2,7 @@
   const currentTime = new Date();
   const currentHour = currentTime.getHours();
 
-  let greeting = "Welcome to nealhitzfield.com";
+  export let greeting = "Welcome to nealhitzfield.com";
 
   // if (currentHour >= 5 && currentHour < 12) {
   //   greeting = "Good morning";

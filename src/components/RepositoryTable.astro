@@ -1,0 +1,35 @@
+---
+import { Icon } from "astro-icon";
+import PureInlineOwners from "./PureInlineOwners.astro";
+import InlineOwners from "./InlineOwners.astro";
+import { repositories } from "../lib/githubData";
+---
+
+<table class="table-auto text-left min-w-full divide-y-2 divide-gray-500/30">
+    <thead>
+    <tr class="text-gray-300">
+        <th class="font-normal px-4 py-2 whitespace-nowrap">#</th>
+        <th class="font-normal px-4 py-2 whitespace-nowrap">Title</th>
+        <th class="font-normal px-4 py-2 whitespace-nowrap">Link</th>
+    </tr>
+    </thead>
+    <tbody>
+    {
+        // table of repositories data
+        repositories.map((repo, index) => (
+            <tr key={repo.id} class="text-gray-100">
+                <td class="px-4 py-2 whitespace-nowrap">{index + 1}</td>
+                <td class="px-4 py-2 whitespace-nowrap">
+                    <a href={repo.url} class="hover:underline">{repo.name}</a>
+                    <InlineOwners owners={repo.owner} />
+                </td>
+                <td class="px-4 py-2 whitespace-nowrap">
+                    <a href={repo.url} class="hover:underline">{repo.name}</a>
+                    <PureInlineOwners owners={repo.owner} />
+                </td>
+                <td class="px-4 py-2 whitespace-nowrap text-right">{repo.updated_at}</td>
+            </tr>
+        ))
+    }
+    </tbody>
+</table>
