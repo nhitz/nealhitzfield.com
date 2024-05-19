@@ -10,20 +10,23 @@ import Layout from "../layouts/Layout.astro";
             class="relative transition-all duration-1000 bg-context"
             style="min-height:300px;--context-color:#134e4a;"
     >
-        <PageHeader />
+        <PageHeader/>
         <div class="relative z-10 px-6">
-            <GreetingTitle client:visible />
+            <GreetingTitle client:visible/>
         </div>
 
-        <!-- Buttons to go to /music and /repositories -->
         <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80">
             <div class="flex justify-center items-center h-full">
-                <a href="/music" class="px-4 py-2 text-white bg-zinc-500 hover:bg-zinc-600 rounded-md">
-                    Listen to Music
-                </a>
-                <a href="/repositories" class="px-4 py-2 text-white bg-zinc-500 hover:bg-zinc-600 rounded-md">
-                    View Repositories
-                </a>
+                <div class="relative z-10 px-6">
+                    <a href="/music" class="px-4 py-2 text-white bg-zinc-500 hover:bg-zinc-600 rounded-md">
+                        Listen to Music
+                    </a>
+                </div>
+                <div class="relative z-10 px-6">
+                    <a href="/repositories" class="px-4 py-2 text-white bg-zinc-500 hover:bg-zinc-600 rounded-md">
+                        View Repositories
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
 </Layout>
