@@ -1,5 +1,5 @@
 ---
-import Icon from "astro-icon";
+import {Icon} from "astro-icon/components";
 
 interface Props {
   size?: "md" | "lg";
@@ -14,7 +14,7 @@ const { size = "md" } = Astro.props;
   class:list={[size === "md" && "h-12 w-12", size === "lg" && "h-14 w-14"]}
 >
   <Icon
-    name="tabler:dots"
+    name="tabler--dots"
     class:list={[size === "md" && "h-8 w-8", size === "lg" && "h-8 w-8"]}
   />
 </button>
