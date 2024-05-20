@@ -5,11 +5,8 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Home">
-    <div
-            id="playlist-container"
-            class="relative transition-all duration-1000 bg-context"
-            style="min-height:300px;--context-color:#134e4a;"
-    >
+    <div id="playlist-container" class="relative transition-all duration-1000 bg-context"
+         style="min-height:300px;--context-color:#134e4a;">
         <PageHeader/>
         <div class="relative z-10 px-6">
             <GreetingTitle client:visible/>
@@ -29,4 +26,5 @@ import Layout from "../layouts/Layout.astro";
                 </div>
             </div>
         </div>
+    </div>
 </Layout>

@@ -13,18 +13,15 @@ initializeRepositories().then(() => {
 });
 ---
 
-<Layout title="Home">
-    <div
-            id="playlist-container"
-            class="relative transition-all duration-1000 bg-context"
-            style="min-height:300px;--context-color:#134e4a;"
-    >
-        <PageHeader />
+<Layout title="Repos">
+    <div id="playlist-container" class="relative transition-all duration-1000 bg-context"
+         style="min-height:300px;--context-color:#134e4a;">
+        <PageHeader/>
         <div class="relative z-10 px-6">
             <GreetingTitle client:visible greeting="My Repos"/>
             <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"></div>
-            <RepoSimpleList />
-            <RepoDetailedList />
+            <RepoSimpleList/>
         </div>
     </div>
+    <RepoDetailedList/>
 </Layout>
