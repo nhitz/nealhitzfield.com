@@ -34,7 +34,7 @@ const repository = allRepositories.find((repository) => repository.id.toString()
                 </div>
                 <div class="flex-1 flex items-end">
                     <div class="text-sm">
-                        <InlineOwners owner={repository?.owner || []}/>
+                        <InlineOwners owner={repository?.owner} url={`https://github.com/${repository?.owner}`}/>
                         <div class="mt-1">
                             <span class="font-semibold">58 likes</span>, 83 musics, <span
                                 class="text-gray-300">about 3h 15min</span
