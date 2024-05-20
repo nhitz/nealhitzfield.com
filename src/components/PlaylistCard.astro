@@ -1,5 +1,5 @@
 ---
-import type { Playlist } from "../lib/data";
+import type { Playlist } from "../lib/musicData";
 import PlayButton from "./PlayButton.astro";
 import PureInlineArtists from "./PureInlineArtists.astro";
 interface Props {
@@ -10,7 +10,7 @@ const { playlist } = Astro.props;
 ---
 
 <a
-  href={`/playlist/${playlist.id}`}
+  href={`/music/playlist/${playlist.id}`}
   class="playlist-card p-4 flex-col items-center group relative transition-all duration-300 overflow-hidden gap-5 rounded-md shadow-lg hover:shadow-xl outline-none bg-zinc-500/5 hover:bg-zinc-500/20 focus:bg-zinc-500/20"
   data-color={playlist.color.dark}
   transition:name=`playlist ${playlist.id} box`
