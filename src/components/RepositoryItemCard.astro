@@ -2,22 +2,26 @@
 import type { Repository } from "../lib/githubData";
 import PlayButton from "./PlayButton.astro";
 interface Props {
-    repository: Repository;
+  repository: Repository;
 }
 
 const { repository } = Astro.props;
 ---
 
 <a
-        href={`/repositories/${repository.id}`}
-        class="playlist-item flex group relative transition-all duration-300 overflow-hidden items-center gap-5 rounded-md shadow-lg hover:shadow-xl outline-none bg-zinc-500/30 hover:bg-zinc-500/50 focus:bg-zinc-500/50"
-        data-color={repository.color.dark}
-        transition:name=`playlist ${repository.id} box`
+  href={`/repositories/${repository.id}`}
+  class="playlist-item flex group relative transition-all duration-300 overflow-hidden items-center gap-5 rounded-md shadow-lg hover:shadow-xl outline-none bg-zinc-500/30 hover:bg-zinc-500/50 focus:bg-zinc-500/50"
+  data-color={repository.color.dark}
+  transition:name=`playlist ${repository.id} box`
 >
-    <div class="font-bold block" transition:name=`playlist ${repository.id} title`>
-        {repository.name}
-    </div>
-    <div class={"absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"} transition:name=`playlist ${repository.id} play`>
-        <PlayButton />
-    </div>
+  <div
+    class="font-bold block"transition:name=`playlist ${repository.id} title`>
+    {repository.name}
+  </div>
+  <div
+    class={"absolute right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"}
+    transition:name=`playlist ${repository.id} play`
+  >
+    <PlayButton />
+  </div>
 </a>

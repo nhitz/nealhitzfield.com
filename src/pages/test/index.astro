@@ -1,24 +1,20 @@
 ---
 import GreetingTitle from "../../components/GreetingTitle.svelte";
 import PageHeader from "../../components/PageHeader.astro";
+import RepoDetailedList from "../../components/RepoDetailedList.astro";
+import RepoSimpleList from "../../components/RepoSimpleList.astro";
 import Layout from "../../layouts/Layout.astro";
-import PlaylistSimpleList from "../../components/PlaylistSimpleList.astro";
-import PlaylistDetailedList from "../../components/PlaylistDetailedList.astro";
 ---
 
-
-
-
-
-<Layout title="Music">
+<Layout title="Test">
     <div id="playlist-container" class="relative transition-all duration-1000 bg-context"
          style="min-height:300px;--context-color:#134e4a;">
         <PageHeader/>
         <div class="relative z-10 px-6">
-            <GreetingTitle client:visible greeting="My moosick"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"></div>
-            <PlaylistSimpleList/>
+            <GreetingTitle client:visible greeting="My Repos"/>
+            <RepoSimpleList/>
         </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"></div>
     </div>
-    <PlaylistDetailedList/>
+    <!-- <RepoDetailedList/> -->
 </Layout>
