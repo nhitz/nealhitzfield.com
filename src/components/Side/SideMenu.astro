@@ -2,6 +2,9 @@
 import SideMenuItem from "./SideMenuItem.astro";
 import { sidebarPlaylists } from "../../lib/musicData";
 import SideItemCard from "./SideItemCard.astro";
+import { playlists } from "../../lib/musicData";
+import SideItemMusic from "./SideItemMusic.astro";
+import SideItemRepos from "./SideItemRepos.astro";
 ---
 
 <div class="flex flex-col flex-1 gap-2">
@@ -15,11 +18,14 @@ import SideItemCard from "./SideItemCard.astro";
   <div class="bg-zinc-900 rounded-lg flex-1">
     <ul>
       <SideMenuItem href="#" iconName="carbon--media-library">
-        My Stuff
+        Neal's Stuff
       </SideMenuItem>
     </ul>
     <ul class="pl-2">
-      {sidebarPlaylists.map((playlist) => <SideItemCard {playlist} />)}
+      <SideItemMusic playlist={playlists[4]} />
+    </ul>
+    <ul class="pl-2">
+      <SideItemRepos playlist={playlists[4]} />
     </ul>
   </div>
 </div>
