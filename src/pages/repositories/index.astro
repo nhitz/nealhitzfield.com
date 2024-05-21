@@ -6,25 +6,29 @@ import {initializeRepositories} from "../../lib/githubData";
 import RepoSimpleList from "../../components/RepoSimpleList.astro";
 import RepoDetailedList from "../../components/RepoDetailedList.astro";
 
-initializeRepositories().then(() => {
-    console.log('Repositories have been fetched.');
-}).catch((error) => {
-    console.error('Failed to fetch repositories:', error);
-});
+export async function load() {
+    try {
+        await initializeRepositories();
+        console.log('Repositories have been fetched.');
+        return {
+            // Add any props you want to pass to your component here
+        };
+    } catch (error) {
+        console.error('Failed to fetch repositories:', error);
+        throw error; // This will cause the page to error
+    }
+}
 ---
 
-<Layout title="Home">
-    <div
-            id="playlist-container"
-            class="relative transition-all duration-1000 bg-context"
-            style="min-height:300px;--context-color:#134e4a;"
-    >
-        <PageHeader />
+<Layout title="Repos">
+    <div id="playlist-container" class="relative transition-all duration-1000 bg-context"
+         style="min-height:300px;--context-color:#134e4a;">
+        <PageHeader/>
         <div class="relative z-10 px-6">
             <GreetingTitle client:visible greeting="My Repos"/>
             <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"></div>
-            <RepoSimpleList />
-            <RepoDetailedList />
+            <RepoSimpleList/>
         </div>
     </div>
+    <!-- <RepoDetailedList/> -->
 </Layout>
