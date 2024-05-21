@@ -1,5 +1,6 @@
 ---
 import GreetingTitle from "../components/GreetingTitle.svelte";
+import HomepageCard from "../components/HomepageCard.astro";
 import PageHeader from "../components/PageHeader.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -12,19 +13,20 @@ import Layout from "../layouts/Layout.astro";
             <GreetingTitle client:visible/>
         </div>
 
-        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80">
-            <div class="flex justify-center items-center h-full">
-                <div class="relative z-10 px-6">
-                    <a href="/music" class="px-4 py-2 text-white bg-zinc-500 hover:bg-zinc-600 rounded-md">
-                        Listen to Music
-                    </a>
-                </div>
-                <div class="relative z-10 px-6">
-                    <a href="/repositories" class="px-4 py-2 text-white bg-zinc-500 hover:bg-zinc-600 rounded-md">
-                        View Repositories
-                    </a>
-                </div>
-            </div>
+        <div class="grid grid-cols-3 gap-4 p-6 bg-gradient-to-t from-zinc-900 via-zinc-900/80">
+            <HomepageCard 
+                imageUrl="https://cdn.dribbble.com/users/3547568/screenshots/14395014/music_jpeg.jpg"
+                title="Music"
+                navigateTo="music"
+                extraText="Listen to your favorite music"
+            />
+            <HomepageCard 
+                imageUrl="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+                title="Repositories"
+                navigateTo="repositories"
+                extraText="View your repositories"
+            />
+            <!-- Add more HomepageCard components as needed -->
         </div>
     </div>
 </Layout>
