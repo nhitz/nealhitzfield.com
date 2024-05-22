@@ -4,7 +4,6 @@ import PageHeader from "../../components/PageHeader.astro";
 import Layout from "../../layouts/Layout.astro";
 import {initializeRepositories} from "../../lib/githubData";
 import RepoSimpleList from "../../components/RepoSimpleList.astro";
-import RepoDetailedList from "../../components/RepoDetailedList.astro";
 
 export async function load() {
     try {
@@ -29,5 +28,4 @@ export async function load() {
             <RepoSimpleList/>
         </div>
     </div>
-    <!-- <RepoDetailedList/> -->
 </Layout>
