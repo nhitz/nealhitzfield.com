@@ -1,7 +1,7 @@
 ---
 interface Props {
-    owner: string;
-    url: string;
+  owner: string | undefined;
+  url: string;
 }
 
 const { owner } = Astro.props;
@@ -9,5 +9,5 @@ const { url } = Astro.props;
 ---
 
 <a href={url} class="hover:underline">
-    {owner}
+  {owner || "Default Owner"}
 </a>

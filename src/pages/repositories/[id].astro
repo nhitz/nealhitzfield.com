@@ -14,7 +14,7 @@ export function getStaticPaths() {
     }));
 }
 const {id} = Astro.params;
-const repository = allRepositories.find((repository) => repository.id.toString() === id);
+const repository = allRepositories.find((repository) => repository.id === id);
 ---
 
 <Layout title={repository?.name || "404"}>
