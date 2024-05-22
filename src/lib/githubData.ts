@@ -27,26 +27,6 @@ export interface Repository {
 
 export let repositories: Repository[] = [
     {
-        "id": 426520029,
-        "name": "amplifyapp",
-        "url": "https://github.com/nhitz/amplifyapp",
-        "color": {
-            "accent": "#555555",
-            "dark": "#27272a"
-        },
-        "description": "Amplify Console CI/CD",
-        "owner": "nhitz",
-        "topics": [],
-        "stars": 0,
-        "forks": 0,
-        "watchers": 0,
-        "issues": 0,
-        "created_at": "2021-11-10T07:10:50Z",
-        "updated_at": "2021-11-10T07:24:01Z",
-        "size": 362,
-        "default_branch": "master"
-    },
-    {
         "id": 208883734,
         "name": "blank-audio",
         "url": "https://github.com/nhitz/blank-audio",
