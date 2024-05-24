@@ -6,10 +6,7 @@ import * as fs from "fs/promises";
 let cachedRepositories: Repository[] = [];
 
 export async function invalidateCacheAndFetch(): Promise<Repository[]> {
-  // Clear the cache
   cachedRepositories = [];
-
-  // Fetch from GitHub and update the cache
   return await getReposFromGithub();
 }
 
@@ -42,12 +39,10 @@ async function getReposFromGithub() {
       commits: repo.commits,
       branches: repo.branches,
     }));
-    // Write the repositories to a json file
     await writeRepositoriesToFile();
     return cachedRepositories;
   } catch (error) {
     console.error("Error fetching repositories from GitHub:", error);
-    // return an empty array or a default value
     return [];
   }
 }
@@ -72,9 +67,7 @@ async function readRepositoriesFromFile(): Promise<Repository[]> {
   return repositoriesFromFile;
 }
 
-// Function to write the repositories to a cached local json file
 async function writeRepositoriesToFile() {
-  // Write the repositories to a json file
   try {
     await fs.writeFile("repositories.json", JSON.stringify(cachedRepositories));
     console.log("Repositories written to file.");
