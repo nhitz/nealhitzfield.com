@@ -14,7 +14,7 @@ export function getStaticPaths() {
     params: { id: repository.id },
   }));
 }
-const { id } = Astro.params;
+const id = Number((Astro.params as unknown as { id: string }).id);
 const repository = repositories.find((repository) => repository.id === id);
 ---
 
