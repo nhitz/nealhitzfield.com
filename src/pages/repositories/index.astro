@@ -5,10 +5,9 @@ import Layout from "../../layouts/Layout.astro";
 import {initializeRepositories} from "../../lib/githubData";
 import RepoSimpleList from "../../components/RepoSimpleList.astro";
 
-export async function load() {
+export async function load(): Promise<{} | undefined> {
     try {
         await initializeRepositories();
-        console.log('Repositories have been fetched.');
         return {
             // Add any props you want to pass to your component here
         };
@@ -16,6 +15,8 @@ export async function load() {
         console.error('Failed to fetch repositories:', error);
     }
 }
+
+load();
 ---
 
 <Layout title="Repos">

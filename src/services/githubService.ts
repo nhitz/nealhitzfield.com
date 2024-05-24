@@ -1,18 +1,19 @@
 import axios from "axios";
 import { colors } from "../lib/colors";
-import { type Repository } from "../lib/githubData.ts";
+import type { Repository } from "../lib/githubData";
 import * as fs from "fs/promises";
 
 let cachedRepositories: Repository[] = [];
 
 export async function invalidateCacheAndFetch(): Promise<Repository[]> {
+  console.log("Invalidating cache and fetching repositories...");
   cachedRepositories = [];
   return await getReposFromGithub();
 }
 
 async function getReposFromGithub() {
   try {
-    console.log("GET api request for repositories from github...OK");
+    console.log("GET api request for repositories from github...");
     const response = await axios.get(
       "https://api.github.com/users/nhitz/repos"
     );
@@ -39,6 +40,7 @@ async function getReposFromGithub() {
       commits: repo.commits,
       branches: repo.branches,
     }));
+    console.log("OK, cached repositories: ", cachedRepositories);
     await writeRepositoriesToFile();
     return cachedRepositories;
   } catch (error) {
@@ -49,7 +51,7 @@ async function getReposFromGithub() {
 
 export async function fetchRepositories(): Promise<Repository[]> {
   if (cachedRepositories.length > 0) {
-    console.log("Returning cached repositories...");
+    console.log("Returning cached repositories...", cachedRepositories);
     return cachedRepositories;
   }
   try {
@@ -68,6 +70,7 @@ async function readRepositoriesFromFile(): Promise<Repository[]> {
 }
 
 async function writeRepositoriesToFile() {
+  console.log("Writing repositories to file...");
   try {
     await fs.writeFile("repositories.json", JSON.stringify(cachedRepositories));
     console.log("Repositories written to file.");
