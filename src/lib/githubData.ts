@@ -309,28 +309,6 @@ export async function initializeRepositories(): Promise<void> {
     repositories = await fetchRepositories();
 }
 
-export const moreRepositories = [
-    ...repositories.map((item) => ({
-        ...item,
-        id: item.id + "a",
-    })),
-];
-
-export const sidebarRepositories = [
-    ...repositories.map((item) => ({
-        ...item,
-        id: item.id + "_side",
-    })),
-];
-
-export const starredRepositories = [
-    ...repositories.map((item) => ({
-        ...item,
-        id: item.id + "_starred",
-    })),
-];
-
 export const allRepositories = [
     ...repositories,
 ];
-
