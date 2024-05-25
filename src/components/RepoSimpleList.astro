@@ -1,8 +1,14 @@
 ---
-import { repositories } from "../lib/githubData";
+import type { Repository } from "../lib/githubData";
 import RepositoryItemCard from "./RepositoryItemCard.astro";
+
+interface Props {
+  repositories: Repository[];
+}
+
+const { repositories } = Astro.props;
 ---
 
 <div class="grid gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 mt-6">
-  {repositories.map((repository) => (<RepositoryItemCard repository={repository} />))}
+  {repositories.map((repository: Repository) => (<RepositoryItemCard repository={repository} />))}
 </div>

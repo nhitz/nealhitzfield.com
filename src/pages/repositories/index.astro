@@ -2,23 +2,25 @@
 import GreetingTitle from "../../components/GreetingTitle.svelte";
 import PageHeader from "../../components/PageHeader.astro";
 import Layout from "../../layouts/Layout.astro";
-import {initializeRepositories} from "../../lib/githubData";
+import {initializeRepositories, repositories} from "../../lib/githubData";
 import RepoSimpleList from "../../components/RepoSimpleList.astro";
+import { fetchRepositories } from "../../services/githubService";
 
 export async function load(): Promise<{} | undefined> {
     try {
-        await initializeRepositories();
+        const repositories = await fetchRepositories();
+        console.log
         return {
-            // Add any props you want to pass to your component here
+            props: {
+                repositories
+            }
         };
     } catch (error) {
         console.error('Failed to fetch repositories:', error);
     }
 }
-
-load();
 ---
-
+ nnb
 <Layout title="Repos">
     <div id="playlist-container" class="relative transition-all duration-1000 bg-context"
          style="min-height:300px;--context-color:#134e4a;">
@@ -26,7 +28,7 @@ load();
         <div class="relative z-10 px-6">
             <GreetingTitle client:visible greeting="My Repos"/>
             <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"></div>
-            <RepoSimpleList/>
+            <RepoSimpleList repositories={repositories}/>
         </div>
     </div>
 </Layout>
