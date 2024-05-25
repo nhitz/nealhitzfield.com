@@ -16,5 +16,7 @@ jobs:
           # Make sure the actual branch is checked out when running on pull requests
           ref: ${{ github.head_ref }}
 
-      - name: format code
+      - name: NPM install modules
+        run: npm install
+      - name: Run prettier
         run: npm run format
