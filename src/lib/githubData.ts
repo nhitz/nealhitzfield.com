@@ -1,5 +1,4 @@
 import { colors } from "./colors";
-import { fetchRepositories } from "../services/githubService";
 
 export interface Repository {
   id: number;
@@ -162,15 +161,6 @@ export let repositories: Repository[] = [
       "default_branch": "master"
     }, 
 ];
-
-export async function initializeRepositories(): Promise<void> {
-  if (repositories.length > 0) {
-    console.log("Repositories already initialized.");
-    return;
-  }
-  console.log("Initializing repositories...");
-  repositories = await fetchRepositories();
-}
 
 export const allRepositories = [...repositories];
 
