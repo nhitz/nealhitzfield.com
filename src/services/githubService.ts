@@ -15,7 +15,7 @@ async function getReposFromGithub() {
   try {
     console.log("GET api request for repositories from github...");
     const response = await axios.get(
-      "https://api.github.com/users/nhitz/repos"
+      "https://api.github.com/users/nhitz/repos",
     );
     cachedRepositories = response.data.map((repo: any) => ({
       id: repo.id,

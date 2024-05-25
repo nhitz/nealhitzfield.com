@@ -31,6 +31,4 @@ export async function initializeRepositories(): Promise<void> {
   repositories = await fetchRepositories();
 }
 
-export const allRepositories = [
-  ...repositories,
-];
+export const allRepositories = [...repositories];
