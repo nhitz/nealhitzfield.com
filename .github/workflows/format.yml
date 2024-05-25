@@ -17,4 +17,4 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: format code
-      - run: format
+        run: format

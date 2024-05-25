@@ -15,7 +15,6 @@ export async function load() {
     };
   } catch (error) {
     console.error("Failed to fetch repositories:", error);
-    throw error; // This will cause the page to error
   }
 }
 ---
