@@ -7,14 +7,20 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="Test">
-    <div id="playlist-container" class="relative transition-all duration-1000 bg-context"
-         style="min-height:300px;--context-color:#134e4a;">
-        <PageHeader/>
-        <div class="relative z-10 px-6">
-            <GreetingTitle client:visible greeting="My Repos"/>
-            <RepoSimpleList/>
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"></div>
+  <div
+    id="playlist-container"
+    class="relative transition-all duration-1000 bg-context"
+    style="min-height:300px;--context-color:#134e4a;"
+  >
+    <PageHeader />
+    <div class="relative z-10 px-6">
+      <GreetingTitle client:visible greeting="My Repos" />
+      <RepoSimpleList />
     </div>
-    <!-- <RepoDetailedList/> -->
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"
+    >
+    </div>
+  </div>
+  <!-- <RepoDetailedList/> -->
 </Layout>

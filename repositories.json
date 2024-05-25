@@ -150,11 +150,7 @@
     },
     "description": "GoatFlix fork of Overseerr",
     "owner": "nhitz",
-    "topics": [
-      "plex",
-      "radarr",
-      "sonarr"
-    ],
+    "topics": ["plex", "radarr", "sonarr"],
     "stars": 0,
     "forks": 0,
     "watchers": 0,
@@ -257,12 +253,7 @@
     },
     "description": "Testing out PrimeVue theming with Vue 3 and Vite. Demo deployed to Azure free tier with GitHub Actions.",
     "owner": "nhitz",
-    "topics": [
-      "primefaces",
-      "primevue",
-      "vite",
-      "vue"
-    ],
+    "topics": ["primefaces", "primevue", "vite", "vue"],
     "stars": 0,
     "forks": 0,
     "watchers": 0,

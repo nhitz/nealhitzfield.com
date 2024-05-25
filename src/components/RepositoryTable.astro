@@ -1,33 +1,43 @@
 ---
 import PureInlineOwners from "./PureInlineOwners.astro";
 import InlineOwners from "./InlineOwners.astro";
-import {repositories} from "../lib/githubData";
-const {id} = Astro.params;
-const repository = repositories.find((repository) => repository.id.toString() === id);
+import { repositories } from "../lib/githubData";
+const { id } = Astro.params;
+const repository = repositories.find(
+  (repository) => repository.id.toString() === id
+);
 ---
 
 <table class="table-auto text-left min-w-full divide-y-2 divide-gray-500/30">
-    <thead>
+  <thead>
     <tr class="text-gray-300">
-        <th class="font-normal px-4 py-2 whitespace-nowrap">#</th>
-        <th class="font-normal px-4 py-2 whitespace-nowrap">Title</th>
-        <th class="font-normal px-4 py-2 whitespace-nowrap">Link</th>
+      <th class="font-normal px-4 py-2 whitespace-nowrap">#</th>
+      <th class="font-normal px-4 py-2 whitespace-nowrap">Title</th>
+      <th class="font-normal px-4 py-2 whitespace-nowrap">Link</th>
     </tr>
-    </thead>
-    <tbody>
+  </thead>
+  <tbody>
     {
+      (
         <tr class="text-gray-100">
-            <!--<td class="px-4 py-2 whitespace-nowrap">{index + 1}</td>-->
-            <td class="px-4 py-2 whitespace-nowrap">
-                <a href={repository?.url} class="hover:underline">{repository?.name}</a>
-                <!--<InlineOwners owners={repo.owner} />-->
-            </td>
-            <td class="px-4 py-2 whitespace-nowrap">
-                <a href={repository?.url} class="hover:underline">{repository?.name}</a>
-                <PureInlineOwners owner={repository?.owner || ''}/>
-            </td>
-            <td class="px-4 py-2 whitespace-nowrap text-right">{repository?.updated_at}</td>
+          {/* <td class="px-4 py-2 whitespace-nowrap">{index + 1}</td> */}
+          <td class="px-4 py-2 whitespace-nowrap">
+            <a href={repository?.url} class="hover:underline">
+              {repository?.name}
+            </a>
+            {/* <InlineOwners owners={repo.owner} /> */}
+          </td>
+          <td class="px-4 py-2 whitespace-nowrap">
+            <a href={repository?.url} class="hover:underline">
+              {repository?.name}
+            </a>
+            <PureInlineOwners owner={repository?.owner || ""} />
+          </td>
+          <td class="px-4 py-2 whitespace-nowrap text-right">
+            {repository?.updated_at}
+          </td>
         </tr>
+      )
     }
-    </tbody>
+  </tbody>
 </table>

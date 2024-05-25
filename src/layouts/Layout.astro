@@ -67,7 +67,7 @@ declare global {
       window.coloradTimeout = null;
       for (const playlist of document.querySelectorAll(".playlist-item")) {
         playlist.addEventListener("mouseover", () =>
-          onMouseOverColorad(playlist)
+          onMouseOverColorad(playlist),
         );
         playlist.addEventListener("mouseout", onMouseOutColorad);
         playlist.addEventListener("focus", () => onMouseFocusColorad(playlist));
@@ -87,7 +87,7 @@ declare global {
           if (!dataColor) return;
           window.coloradTimeout = setTimeout(
             () => setContainerColor(dataColor),
-            200
+            200,
           );
         }
       }
