@@ -10,7 +10,7 @@ import { allPlaylists } from "../../../lib/musicData";
 
 export function getStaticPaths() {
   return allPlaylists.map((playlist) => ({
-    params: {id: playlist.id},
+    params: { id: playlist.id },
   }));
 }
 const { id } = Astro.params;

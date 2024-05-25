@@ -6,19 +6,21 @@ import PlaylistSimpleList from "../../components/PlaylistSimpleList.astro";
 import PlaylistDetailedList from "../../components/PlaylistDetailedList.astro";
 ---
 
-
-
-
-
 <Layout title="Music">
-    <div id="playlist-container" class="relative transition-all duration-1000 bg-context"
-         style="min-height:300px;--context-color:#134e4a;">
-        <PageHeader/>
-        <div class="relative z-10 px-6">
-            <GreetingTitle client:visible greeting="My moosick"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"></div>
-            <PlaylistSimpleList/>
-        </div>
+  <div
+    id="playlist-container"
+    class="relative transition-all duration-1000 bg-context"
+    style="min-height:300px;--context-color:#134e4a;"
+  >
+    <PageHeader />
+    <div class="relative z-10 px-6">
+      <GreetingTitle client:visible greeting="My moosick" />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"
+      >
+      </div>
+      <PlaylistSimpleList />
     </div>
-    <PlaylistDetailedList/>
+  </div>
+  <PlaylistDetailedList />
 </Layout>
