@@ -3,10 +3,9 @@ import GreetingTitle from "../../components/GreetingTitle.svelte";
 import PageHeader from "../../components/PageHeader.astro";
 import Layout from "../../layouts/Layout.astro";
 import RepoSimpleList from "../../components/RepoSimpleList.astro";
-import { fetchRepositories } from "../../services/githubService";
-import type { Repository } from "../../lib/githubData";
+import { repositories, type Repository } from "../../lib/githubData";
 
-const repositoriesProp: Repository[] = await fetchRepositories();
+const repositoriesProp: Repository[] = repositories;
 ---
 
 <Layout title="Repos">
