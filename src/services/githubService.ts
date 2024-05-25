@@ -11,7 +11,7 @@ export async function invalidateCacheAndFetch(): Promise<Repository[]> {
   return await getReposFromGithub();
 }
 
-async function getReposFromGithub() {
+async function getReposFromGithub(): Promise<Repository[]>{
   try {
     console.log("GET api request for repositories from github...");
     const response = await axios.get(
@@ -51,22 +51,37 @@ async function getReposFromGithub() {
 
 export async function fetchRepositories(): Promise<Repository[]> {
   if (cachedRepositories.length > 0) {
-    console.log("Returning cached repositories...", cachedRepositories);
     return cachedRepositories;
   }
   try {
-    return readRepositoriesFromFile();
+    console.log("No cached repositories, trying to read from file...");
+    return await readRepositoriesFromFile();
   } catch (err) {
     console.error("Error reading repositories from file:", err);
+    return await getReposFromGithub();
   }
-  return await getReposFromGithub();
 }
 
 async function readRepositoriesFromFile(): Promise<Repository[]> {
-  const data = await fs.readFile("repositories.json", "utf8");
-  console.log("Returning repositories from file...");
-  let repositoriesFromFile = JSON.parse(data);
-  return repositoriesFromFile;
+  try {
+    const data = await fs.readFile("repositories.json", "utf8");
+    let repositoriesFromFile = JSON.parse(data);
+    cachedRepositories = repositoriesFromFile;
+    console.log("Returning repositories from file.");
+    return repositoriesFromFile;
+  }
+  catch (err) {
+    if (err instanceof Error) {
+      if ((err as any).code === "ENOENT") {
+        console.log("File not found, returning empty array");
+        throw new Error("File not found");
+      } else {
+        console.error("Error reading repositories from file:", err.message);
+        throw err;
+      }
+    }
+    throw err;
+  }
 }
 
 async function writeRepositoriesToFile() {
