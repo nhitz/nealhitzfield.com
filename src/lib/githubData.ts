@@ -8,21 +8,16 @@ export interface Repository {
   color: (typeof colors)[keyof typeof colors];
   description: string;
   owner: string;
-  // languages: string[];
   topics: string[];
   stars: number;
   forks: number;
   watchers: number;
   issues: number;
-  // pull_requests: number;
   license?: string;
   created_at: string;
   updated_at: string;
   size: number;
   default_branch: string;
-  // contributors: string[];
-  // commits: number;
-  // branches: number;
 }
 
 export let repositories: Repository[] = [
@@ -350,7 +345,4 @@ export const starredRepositories = [
 
 export const allRepositories = [
   ...repositories,
-  // ...moreRepositories,
-  // ...sidebarRepositories,
-  // ...starredRepositories,
 ];
