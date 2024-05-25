@@ -1,0 +1,20 @@
+name: prettier formatting
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  prettier:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Make sure the actual branch is checked out when running on pull requests
+          ref: ${{ github.head_ref }}
+
+      - name: format code
+      - run: format
