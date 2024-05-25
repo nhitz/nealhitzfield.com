@@ -6,15 +6,16 @@ import RepositoryTable from "../../components/RepositoryTable.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import PlayButton from "../../components/PlayButton.astro";
 import Layout from "../../layouts/Layout.astro";
-import { allRepositories } from "../../lib/githubData";
+import { repositories } from "../../lib/githubData";
+import type { Repository } from "../../lib/githubData";
 
 export function getStaticPaths() {
-  return allRepositories.map((repository) => ({
+  return repositories.map((repository: Repository) => ({
     params: { id: repository.id },
   }));
 }
-const { id } = Astro.params;
-const repository = allRepositories.find((repository) => repository.id === id);
+const id = Number((Astro.params as unknown as { id: string }).id);
+const repository = repositories.find((repository) => repository.id === id);
 ---
 
 <Layout title={repository?.name || "404"}>
@@ -37,7 +38,7 @@ const repository = allRepositories.find((repository) => repository.id === id);
         <div class="flex-1 flex items-end">
           <div class="text-sm">
             <InlineOwners
-              owner={repository?.owner}
+              owner={repository?.owner ?? ""}
               url={`https://github.com/${repository?.owner}`}
             />
             <div class="mt-1">
