@@ -6,7 +6,7 @@ import RepositoryTable from "../../components/RepositoryTable.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import PlayButton from "../../components/PlayButton.astro";
 import Layout from "../../layouts/Layout.astro";
-import { allRepositories, getAllRepositories, repositories } from "../../lib/githubData";
+import { allRepositories, getAllRepositories } from "../../lib/githubData";
 
 export function getStaticPaths() {
   const allRepositories = getAllRepositories();

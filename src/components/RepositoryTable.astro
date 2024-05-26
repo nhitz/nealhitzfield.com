@@ -1,8 +1,5 @@
 ---
-import PureInlineOwners from "./PureInlineOwners.astro";
-import InlineOwners from "./InlineOwners.astro";
 import { repositories } from "../lib/githubData";
-import { Icon } from "astro-icon/components";
 const { id } = Astro.params;
 const repository = repositories.find(
   (repository) => repository.id.toString() === id
