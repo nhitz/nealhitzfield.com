@@ -6,47 +6,49 @@ const repository = repositories.find(
 );
 ---
 
-<table class="table-auto text-left min-w-full divide-y-2 divide-gray-500/30">
-  <thead>
-    <tr class="text-gray-300">
-      <th class="font-normal px-4 py-2 whitespace-nowrap">Title</th>
-      <th class="font-normal px-4 py-2 whitespace-nowrap">Updated At</th>
-      <th class="font-normal px-4 py-2 whitespace-nowrap">Size</th>
-    </tr>
-  </thead>
-  <tbody>
-    {
-      (
-        <tr class="text-gray-100">
-          <td class="px-4 py-2 whitespace-nowrap">
-            <a href={repository?.url} class="hover:underline">
-              {repository?.name}
-            </a>
-          </td>
-          <td class="px-4 py-2 whitespace-nowrap flex gap-3 items-center">
-            {repository?.updated_at
-              ? new Date(repository.updated_at).toLocaleString()
-              : "N/A"}
-          </td>
-          <td class="px-4 py-2 whitespace-nowrap">
-            {repository?.size
-              ? repository.size > 1000
-                ? `${(repository.size / 1024).toFixed(2)} MB`
-                : `${repository.size} KB`
-              : "N/A"}
-          </td>
-        </tr>
-      )
-    }
-  </tbody>
+<div class="overflow-x-auto">
+  <table class="table-auto text-left min-w-full divide-y-2 divide-gray-500/30">
+    <thead>
+      <tr class="text-gray-300">
+        <th class="font-normal px-4 py-2 whitespace-nowrap">Title</th>
+        <th class="font-normal px-4 py-2 whitespace-nowrap">Updated At</th>
+        <th class="font-normal px-4 py-2 whitespace-nowrap">Size</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        (
+          <tr class="text-gray-100">
+            <td class="px-4 py-2 whitespace-nowrap">
+              <a href={repository?.url} class="hover:underline">
+                {repository?.name}
+              </a>
+            </td>
+            <td class="px-4 py-2 whitespace-nowrap flex gap-3 items-center">
+              {repository?.updated_at
+                ? new Date(repository.updated_at).toLocaleString()
+                : "N/A"}
+            </td>
+            <td class="px-4 py-2 whitespace-nowrap">
+              {repository?.size
+                ? repository.size > 1000
+                  ? `${(repository.size / 1024).toFixed(2)} MB`
+                  : `${repository.size} KB`
+                : "N/A"}
+            </td>
+          </tr>
+        )
+      }
+    </tbody>
 
-  <tfoot>
-    <tr class="text-gray-300">
-      <td class="font-normal px-4 py-2 whitespace-normal md:whitespace-nowrap" colspan="4">
-        <div class="max-w-full md:max-w-xs overflow-wrap break-word">
-          {repository?.description}
-        </div>
-      </td>
-    </tr>
-  </tfoot>
-</table>
+    <tfoot>
+      <tr class="text-gray-300">
+        <td class="font-normal px-4 py-2 whitespace-normal md:whitespace-nowrap" colspan="4">
+          <div class="max-w-full md:max-w-xs overflow-wrap break-word">
+            {repository?.description}
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
