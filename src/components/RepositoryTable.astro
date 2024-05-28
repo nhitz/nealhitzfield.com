@@ -9,7 +9,6 @@ const repository = repositories.find(
 <table class="table-auto text-left min-w-full divide-y-2 divide-gray-500/30">
   <thead>
     <tr class="text-gray-300">
-      <th class="font-normal px-4 py-2 whitespace-nowrap">ID #</th>
       <th class="font-normal px-4 py-2 whitespace-nowrap">Title</th>
       <th class="font-normal px-4 py-2 whitespace-nowrap">Updated At</th>
       <th class="font-normal px-4 py-2 whitespace-nowrap">Size</th>
@@ -21,14 +20,8 @@ const repository = repositories.find(
         <tr class="text-gray-100">
           <td class="px-4 py-2 whitespace-nowrap">
             <a href={repository?.url} class="hover:underline">
-              {repository?.id}
-            </a>
-          </td>
-          <td class="px-4 py-2 whitespace-nowrap">
-            <a href={repository?.url} class="hover:underline">
               {repository?.name}
             </a>
-            {/* <PureInlineOwners owner={repository?.owner || ""} /> */}
           </td>
           <td class="px-4 py-2 whitespace-nowrap flex gap-3 items-center">
             {repository?.updated_at
