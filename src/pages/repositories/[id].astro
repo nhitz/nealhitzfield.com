@@ -37,7 +37,7 @@ const repository = allRepositories.find((repo) => repo.id === numberId);
           </h1>
         </div>
         <div class="flex-1 flex items-end">
-          <div class="text-sm">
+          <div class="text-sm pt-2">
             <InlineOwners
               owner={repository?.owner || ""}
               url={`https://github.com/${repository?.owner}`}
@@ -63,7 +63,7 @@ const repository = allRepositories.find((repo) => repo.id === numberId);
         <LikeButton />
         <DotsButton />
       </div>
-      <div class="w-full md:w-auto px-6 pt-4">
+      <div class="w-full md:w-3/4 pt-4">
         <RepositoryTable />
       </div>
     </div>
