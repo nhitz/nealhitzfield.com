@@ -4,7 +4,8 @@
     "config:base",
     "schedule:weekly",
     "group:allNonMajor",
-    ":automergeMinor"
+    ":automergeMinor",
+    ":semanticCommitTypeAll(chore)"
   ],
   "rangeStrategy": "bump"
 }
