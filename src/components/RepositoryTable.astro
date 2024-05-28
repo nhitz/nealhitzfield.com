@@ -11,7 +11,7 @@ const repository = repositories.find(
     <thead>
       <tr class="text-gray-300">
         <th class="font-normal px-4 py-2 whitespace-nowrap">Title</th>
-        <th class="font-normal px-4 py-2 whitespace-nowrap">Updated At</th>
+        <th class="font-normal px-4 py-2 whitespace-nowrap">Created At</th>
         <th class="font-normal px-4 py-2 whitespace-nowrap">Size</th>
       </tr>
     </thead>
@@ -26,7 +26,7 @@ const repository = repositories.find(
             </td>
             <td class="px-4 py-2 whitespace-nowrap flex gap-3 items-center">
               {repository?.updated_at
-                ? new Date(repository.updated_at).toLocaleString()
+                ? new Date(repository.created_at).toLocaleString()
                 : "N/A"}
             </td>
             <td class="px-4 py-2 whitespace-nowrap">
