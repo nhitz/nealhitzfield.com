@@ -7,4 +7,5 @@ import icon from "astro-icon";
 export default defineConfig({
   root: "./src",
   integrations: [tailwind(), svelte(), icon()],
+  server: { port: 8080 },
 });
