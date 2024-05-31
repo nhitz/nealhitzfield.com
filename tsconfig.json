@@ -1,5 +1,12 @@
 {
   "extends": "astro/tsconfigs/strict",
-  // exclude large files
-  "exclude": ["node_modules", "dist", "build", "public"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "public"
+  ],
+  "compilerOptions": {
+    "jsx": "preserve"
+  }
 }
