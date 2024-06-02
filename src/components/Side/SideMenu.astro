@@ -1,8 +1,8 @@
 ---
-import SideMenuItem from "./SideMenuItem.vue";
+import SideMenuItem from "./SideMenuItem.astro";
 import { playlists } from "../../lib/musicData";
-import SideItemRepos from "./SideItemRepos.vue";
-import SideItemMusic from "./SideItemMusic.vue";
+import SideItemRepos from "./SideItemRepos.astro";
+import SideItemMusic from "./SideItemMusic.astro";
 ---
 
 <div class="flex flex-col flex-1 gap-2">
@@ -15,7 +15,7 @@ import SideItemMusic from "./SideItemMusic.vue";
 
   <div class="bg-zinc-900 rounded-lg flex-1">
     <ul>
-      <SideMenuItem href="#" iconName="MediaIcon">
+      <SideMenuItem href="#" iconName="MediaIcon" title="Collapse Neal's Stuff">
         Neal's Stuff
       </SideMenuItem>
     </ul>
