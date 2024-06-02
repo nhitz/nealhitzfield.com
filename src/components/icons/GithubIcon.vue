@@ -14,6 +14,6 @@
 
 <script>
 export default {
-  name: "BackButtonIcon",
+  name: "GithubIcon",
 };
 </script>
