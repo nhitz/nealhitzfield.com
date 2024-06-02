@@ -4,14 +4,16 @@ import { Icon } from "astro-icon/components";
 type Props = {
   href?: string;
   iconName?: string;
+  title?: string;
 };
 
-const { href, iconName } = Astro.props;
+const { href, iconName, title} = Astro.props;
 ---
 
 <li>
   <a
     {href}
+    title={title}
     class="flex gap-4 text-zinc-400 hover:text-zinc-100 py-3.5 px-5 font-semibold transition-all duration-300"
   >
     <Icon name={iconName} class="h-6 w-6" />
