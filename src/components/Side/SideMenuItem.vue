@@ -4,8 +4,8 @@
       :href="href"
       class="flex gap-4 text-zinc-400 hover:text-zinc-100 py-3.5 px-5 font-semibold transition-all duration-300"
     >
-      <component :is="iconName" class="h-6 w-6" />
-      <slot />
+      <component :is="iconName" class="h-6 w-6 menu-item-icon" />
+      <span class="menu-item-text"><slot /></span>
     </a>
   </li>
 </template>

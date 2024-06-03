@@ -9,14 +9,14 @@
 
     <div class="bg-zinc-900 rounded-lg flex-1">
       <ul>
-        <SideMenuItem href="#" iconName="MediaIcon">
+        <SideMenuItem href="#" iconName="MediaIcon" title="Collapse Neal's Stuff" id="nealStuffToggle">
           Neal's Stuff
         </SideMenuItem>
       </ul>
       <ul class="pl-2">
         <SideItemMusic :playlist="playlists[4]" />
       </ul>
-      <ul class="pl-2">
+      <ul class="pl-2 mt-3">
         <SideItemRepos :playlist="playlists[4]" />
       </ul>
     </div>
