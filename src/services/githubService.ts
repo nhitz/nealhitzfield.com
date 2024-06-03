@@ -11,7 +11,7 @@ export async function invalidateCacheAndFetch(): Promise<Repository[]> {
   return await getReposFromGithub();
 }
 
-async function getReposFromGithub(): Promise<Repository[]>{
+async function getReposFromGithub(): Promise<Repository[]> {
   try {
     console.log("GET api request for repositories from github...");
     const response = await axios.get(
@@ -69,8 +69,7 @@ async function readRepositoriesFromFile(): Promise<Repository[]> {
     cachedRepositories = repositoriesFromFile;
     console.log("Returning repositories from file.");
     return repositoriesFromFile;
-  }
-  catch (err) {
+  } catch (err) {
     if (err instanceof Error) {
       if ((err as any).code === "ENOENT") {
         console.log("File not found, returning empty array");
