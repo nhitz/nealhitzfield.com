@@ -1,0 +1,38 @@
+<template>
+  <a
+    :href="'/repositories'"
+    class="playlist-item flex group relative p-0.5 overflow-hidden items-center gap-5 rounded-md shadow-lg hover:shadow-xl outline-none hover:bg-zinc-500/10 focus:bg-zinc-500/50"
+    :data-color="playlist.color.dark"
+  >
+    <div class="h-12 w-12 flex-none">
+      <img
+        src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+        alt="Github"
+        class="object-cover rounded h-full w-full shadow-[5px_0_30px_0px_rgba(0,0,0,0.3)]"
+      />
+    </div>
+    <div class="flex flex-auto flex-col truncate">
+      <div class="font-semibold w-full flex-none truncate">Git Repos</div>
+      <div class="text-gray-400 text-sm truncate flex-1">
+        <PureInlineOwners :owner="'nhitz'" />
+      </div>
+    </div>
+  </a>
+</template>
+
+<script>
+import PureInlineOwners from "../PureInlineOwners.vue";
+
+export default {
+  name: "SideItemRepos",
+  components: {
+    PureInlineOwners,
+  },
+  props: {
+    playlist: {
+      type: Object,
+      required: true,
+    },
+  },
+};
+</script>

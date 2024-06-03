@@ -1,3 +1,3 @@
 /// <reference types="astro/client" />
-declare module 'vitest'
-declare module 'vitest/config'
+declare module "vitest";
+declare module "vitest/config";
