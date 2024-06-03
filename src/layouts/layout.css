@@ -47,9 +47,28 @@ body {
 }
 
 #sideMenu {
-  transition: width 0.5s ease;
+  transition: width 0.3s;
 }
 
 #sideMenu.collapsed {
-  width: 0;
+  width: 70px;
+}
+
+#sideMenu .menu-item-text {
+  display: inline;
+}
+
+#sideMenu.collapsed .menu-item-text {
+  display: none;
+}
+
+#sideMenu.collapsed .menu-item-icon {
+  margin: auto;
+}
+
+#sideMenu .menu-item-image {
+  display: block;
+  margin: auto;
+  width: 50px;
+  height: 50px;
 }
