@@ -5,12 +5,13 @@ type Props = {
   href?: string;
   iconName?: string;
   title?: string;
+  id?: string;
 };
 
-const { href, iconName, title} = Astro.props;
+const { href, iconName, title, id} = Astro.props;
 ---
 
-<li>
+<li id={id}>
   <a
     {href}
     title={title}
