@@ -2,7 +2,8 @@
 import SideMenuItem from "./SideMenuItem.astro";
 import { playlists } from "../../lib/musicData";
 import SideItemRepos from "./SideItemRepos.astro";
-import SideItemMusic from "./SideItemMusic.astro";
+// import SideItemMusic from "./SideItemMusic.astro";
+import SideItemProjects from "./SideItemProjects.astro";
 ---
 
 <div class="flex flex-col flex-1 gap-2">
@@ -15,15 +16,26 @@ import SideItemMusic from "./SideItemMusic.astro";
 
   <div class="bg-zinc-900 rounded-lg flex-1">
     <ul>
-      <SideMenuItem href="#" iconName="MediaIcon" title="Collapse Neal's Stuff" id="nealStuffToggle">
+      <SideMenuItem
+        href="#"
+        iconName="MediaIcon"
+        title="Collapse Neal's Stuff"
+        id="nealStuffToggle"
+      >
         Neal's Stuff
       </SideMenuItem>
     </ul>
-    <ul class="pl-2">
+    <!-- <ul class="pl-2">
       <SideItemMusic playlist={playlists[4]} />
-    </ul>
-    <ul class="pl-2 mt-3">
+    </ul> -->
+
+    <!-- <ul class="pl-2 mt-3"></ul> -->
+    <ul class="pl-2">
       <SideItemRepos playlist={playlists[4]} />
+    </ul>
+
+    <ul class="pl-2 mt-3">
+      <SideItemProjects />
     </ul>
   </div>
 </div>
