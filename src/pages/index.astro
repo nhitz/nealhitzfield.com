@@ -15,21 +15,36 @@ import Layout from "../layouts/Layout.astro";
     <div class="relative z-10 px-6">
       <GreetingTitle client:visible />
     </div>
-    <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80">
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"
+    >
     </div>
     <div class="px-6 relative z-10 mt-4">
       <div class="flex flex-wrap mt-6 gap-4">
-        <HomepageCard
+        <!-- <HomepageCard
           imageUrl="https://static.wixstatic.com/media/c23506_aecbca17e5ed4b748cf046869a8c65f9~mv2.jpg/v1/fill/w_560,h_560,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c23506_aecbca17e5ed4b748cf046869a8c65f9~mv2.jpg"
           title="Music"
           navigateTo="music"
           extraText="Listen Neal's favorite music"
+        /> -->
+        <HomepageCard
+          imageUrl="https://avatars.githubusercontent.com/u/67109815?s=200&v=4"
+          title="Profile"
+          navigateTo="github-profile"
+          extraText="View Neal's profile"
         />
         <HomepageCard
           imageUrl="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
           title="Repositories"
           navigateTo="repositories"
           extraText="View Neal's repositories"
+        />
+        <!-- homepage card for Projects -->
+        <HomepageCard
+          imageUrl="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/light-bulb-design-template-1c597d6775d2ff0a949c3f3ebb48e4dc_screen.jpg?ts=1626890955"
+          title="Projects"
+          navigateTo="projects"
+          extraText="View Neal's projects"
         />
       </div>
     </div>

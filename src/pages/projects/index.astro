@@ -1,0 +1,28 @@
+---
+import GreetingTitle from "../../components/GreetingTitle.svelte";
+import PageHeader from "../../components/PageHeader.astro";
+import Layout from "../../layouts/Layout.astro";
+// import RepoSimpleList from "../../components/RepoSimpleList.astro";
+// import { repositories, type Repository } from "../../lib/githubData";
+
+// const repositoriesProp: Repository[] = repositories;
+---
+
+<Layout title="Repos">
+  <div
+    id="playlist-container"
+    class="relative transition-all duration-1000 bg-context"
+    style="min-height:300px;--context-color:#134e4a;"
+  >
+    <PageHeader />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80"
+    >
+    </div>
+    <div class="relative z-10 px-6">
+      <GreetingTitle client:visible greeting="My Projects" />
+      Work in progress
+      <!-- <RepoSimpleList repositories={repositoriesProp} /> -->
+    </div>
+  </div>
+</Layout>
