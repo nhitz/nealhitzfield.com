@@ -4,13 +4,14 @@ import { playlists } from "../../lib/musicData";
 import SideItemRepos from "./SideItemRepos.astro";
 // import SideItemMusic from "./SideItemMusic.astro";
 import SideItemProjects from "./SideItemProjects.astro";
+import SideMenuSearchButton from "./SideMenuSearchButton.astro";
 ---
 
 <div class="flex flex-col flex-1 gap-2">
   <div class="bg-zinc-900 rounded-lg">
     <ul>
       <SideMenuItem href="/" iconName="HomeIcon">Home</SideMenuItem>
-      <SideMenuItem href="#" iconName="SearchIcon">Search</SideMenuItem>
+      <SideMenuSearchButton id="search" iconName="SearchIcon">Search</SideMenuSearchButton>
     </ul>
   </div>
 
