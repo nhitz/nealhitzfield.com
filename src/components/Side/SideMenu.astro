@@ -2,15 +2,15 @@
 import SideMenuItem from "./SideMenuItem.astro";
 import { playlists } from "../../lib/musicData";
 import SideItemRepos from "./SideItemRepos.astro";
-// import SideItemMusic from "./SideItemMusic.astro";
 import SideItemProjects from "./SideItemProjects.astro";
+import SideMenuSearchButton from "./SideMenuSearchButton.astro";
 ---
 
 <div class="flex flex-col flex-1 gap-2">
   <div class="bg-zinc-900 rounded-lg">
     <ul>
       <SideMenuItem href="/" iconName="HomeIcon">Home</SideMenuItem>
-      <SideMenuItem href="#" iconName="SearchIcon">Search</SideMenuItem>
+      <SideMenuSearchButton iconName="SearchIcon">Search</SideMenuSearchButton>
     </ul>
   </div>
 
@@ -25,11 +25,6 @@ import SideItemProjects from "./SideItemProjects.astro";
         Neal's Stuff
       </SideMenuItem>
     </ul>
-    <!-- <ul class="pl-2">
-      <SideItemMusic playlist={playlists[4]} />
-    </ul> -->
-
-    <!-- <ul class="pl-2 mt-3"></ul> -->
     <ul class="pl-2">
       <SideItemRepos playlist={playlists[4]} />
     </ul>
