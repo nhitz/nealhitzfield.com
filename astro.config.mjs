@@ -7,9 +7,6 @@ import vue from "@astrojs/vue";
 
 // https://astro.build/config
 export default defineConfig({
-  build: {
-    format: "file",
-  },
   root: "./src",
   integrations: [tailwind(), svelte(), icon(), vue(), pagefind()],
   server: {
