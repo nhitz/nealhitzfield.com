@@ -30,10 +30,6 @@ declare global {
 
     <script>
       document.addEventListener("astro:page-load", () => {
-        for (const el of document.querySelectorAll(".el-to-fade")) {
-          el.classList.remove("scale-90");
-        }
-
         const nealStuffToggle = document.getElementById("nealStuffToggle");
         if (nealStuffToggle) {
           nealStuffToggle.addEventListener("click", function (event) {
